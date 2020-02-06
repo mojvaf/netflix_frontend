@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import Nav from './navbar/Nav';
+import Footer from './footer/Footer';
+import TvSeries from './views/TvSeries'
+import Overview from './views/Overview'
+
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+
+/* component*/
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Switch >
+        <Route path="/overview">
+          <Overview />
+        </Route>
+        <Route path="/tv_series">
+        <TvSeries />
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }
